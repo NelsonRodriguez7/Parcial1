@@ -1,0 +1,105 @@
+<?php
+    require_once("controllers/bonificacion_controller.php");
+?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Programa 2</title>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-primary">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                <?php echo bonificacion_util::myBarraLateral() ?>
+            </div>
+        </div>
+        <div class="col py-3">
+            <br>
+            <center><h1>Bienvenido a SellCar Panamá</h1></center>
+            <center><h4>Venta De Autos Nuevos y Usados</h4></center>
+            <div class="container-xxl">
+                <br>
+                <center><div class="row">
+                <div class="coll-xs-12 col-sm-6 col-md-4 col-lg-4">
+                    <div class="card border-primary mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Vendedores</div>
+                        <div class="card-body text-primary">
+                            <img src="imagenes/vendedor2.png" class="img-fluid" alt="...">
+                            <br></br>
+                            <table class="table table-primary table-striped table-hover table-bordered table-sm table-responsive-sm">
+                            <thead>
+                                <tr>
+                                <th scope="col"><center>Nombre</center></th>
+                                <th scope="col"><center>Edad</center></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach(bonificacion_controller::Mostrar() as $vendedor) { ?>
+                                <?php echo bonificacion_util::tabla($vendedor->getNombre(),
+                                                                    $vendedor->getEdad()) ?>
+                            <?php } ?>    
+                            </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="coll-xs-12 col-sm-6 col-md-4 col-lg-4">
+                    <div class="card border-primary mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Sucursales</div>
+                        <div class="card-body text-primary">
+                            <img src="imagenes/tienda2.png" class="img-fluid" alt="...">
+                            <br></br>
+                            <table class="table table-primary table-striped table-hover table-bordered table-sm table-responsive-sm">
+                            <thead>
+                                <tr>
+                                <th scope="col"><center>ID</center></th>
+                                <th scope="col"><center>Ubicacion</center></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach(bonificacion_controller::Mostrar2() as $sucursal) { ?>
+                                <?php echo bonificacion_util::tabla($sucursal->getId2(),
+                                                                    $sucursal->getDireccion()) ?>
+                            <?php } ?>    
+                            </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>    
+                <div class="coll-xs-12 col-sm-6 col-md-4 col-lg-4">
+                    <div class="card border-primary mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Marcas</div>
+                        <div class="card-body text-primary">
+                            <img src="imagenes/auto2.png" class="img-fluid" alt="...">
+                            <table class="table table-primary table-striped table-hover table-bordered table-sm table-responsive-sm">
+                            <thead>
+                                <tr>
+                                <th scope="col"><center>Nombre</center></th>
+                                <th scope="col"><center>Procedencia</center></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach(bonificacion_controller::Mostrar3() as $marca) { ?>
+                                <?php echo bonificacion_util::tabla($marca->getMarca(),
+                                                                    $marca->getPais()) ?>
+                            <?php } ?>    
+                            </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>    
+                </div></center>
+                </div>
+               
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</body>
+</html>
